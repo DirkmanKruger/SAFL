@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md bg-info navbar-light">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: stateis('app')}"><a ui-sref="app">
+                    <i class="fa d-inline fa-lg fa-home"></i>&nbsp;Home&nbsp;&nbsp;</a></li>
+                <li ng-class="{active: stateis('app.newcatch')}"><a ui-sref="app.newcatch">
+                    <i class="fa d-inline fa-lg fa-arrow-up"></i>&nbsp;New Catch&nbsp;&nbsp; </a></li>
+                <li ng-class="{active: stateis('app.catcheslookup')}"><a ui-sref="app.catcheslookup">
+                    <i class="fa d-inline fa-lg fa-anchor"></i>&nbsp;Catches Lookup&nbsp;&nbsp; </a></li>
+                <li ng-class="{active: stateis('app.specieslookup')}"><a ui-sref="app.specieslookup">
+                    <i class="fa d-inline fa-lg fa-eye"></i>&nbsp;Species Lookup&nbsp;&nbsp;</a></li>
+                <li ng-class="{active: stateis('app.knotslookup')}"><a ui-sref="app.knotslookup">
+                    <i class="fa d-inline fa-lg fa-vine"></i>&nbsp;Knots Lookup&nbsp;&nbsp;</a></li>
+                <li ng-class="{active: stateis('app.bragging')}"><a ui-sref="app.bragging">
+                    <i class="fa d-inline fa-lg fa-bullhorn"></i>&nbsp;Bragging Rights&nbsp;&nbsp;</a></li>
+                <li ng-class="{active: stateis('app.aboutus')}"><a ui-sref="app.aboutus">
+                    <i class="fa d-inline fa-lg fa-info-circle"></i>&nbsp;About&nbsp;&nbsp;</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!loggedIn"><a ng-click="openLogin()">
+                    <span class="fa d-inline fa-lg fa-user-circle-o"></span>&nbsp;Sign in&nbsp;&nbsp;</a>
+                </li>
+                <li ng-if="loggedIn">
+                    <a>{{username}}</a>
+                </li>
+                <li ng-if="loggedIn">
+                    <a ng-click="logOut()">
+                        <span class="fa d-inline fa-lg fa-user"></span>&nbsp;Sign out&nbsp;&nbsp;</a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</nav>
+<header class="jumbotron" style="background-image: url('../images/logos/Jumbo2.png');background-size:fit;">
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-xs-12 col-sm-8 col-md-12">
+                <h3 class="display-3">South African Fishing Log</h3>
+                <h4 class="text-light">&nbsp; &nbsp; &nbsp;</h4>
+                <h4 class="text-light">The one central location for all your fishing needs!</h4>
+                <!--<h4 class="text-light">Logging your catch, looking up an unknown species, even how to tie that elusive knot, we have it all!</h4>-->
+                <!--<h4 class="text-light">Best of all, with a single click you can proof to your buddies that you did indeed catch that monster fish!</h4>-->
+            </div>
+        </div>
+    </div>
+</header>

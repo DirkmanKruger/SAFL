@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home </a></li>
+                <li class="active"> / Species</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Species Lookup</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-9">
+            <ul class="block">
+                <li ng-repeat="specie in allSpecies">
+                    <div>
+                        <a>
+                            <img ng-src={{specie.image}} alt="Image">
+                        </a>
+                    </div>
+                    <div>
+                        <h3>{{specie.name}}<small>  {{specie.type}}</small></h3>
+                        <p><h5>Adult Length :{{specie.adultLength}}  Average Weight : {{specie.averageWeight}}</h5></p>
+                        <p><h5>Commonly Found : {{specie.commonLocations}}</h5></p>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>

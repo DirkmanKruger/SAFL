@@ -1,0 +1,22 @@
+<ion-view view-title="Species Lookup">
+  <ion-content>
+    <h1>Species Lookup</h1>
+
+    <div class="row">
+      <div class="col col-offset-10">
+        <ion-list>
+          <ion-item ng-repeat="specie in allSpecies">
+            <div>
+              <a><img ng-src={{specie.image}} alt="Image"></a>
+            </div>
+            <div>
+              <h3>{{specie.name}}<small>  {{specie.type}}</small></h3>
+              <p><h5>Adult Length :{{specie.adultLength}}  Average Weight : {{specie.averageWeight}}</h5></p>
+              <p><h5>Commonly Found : {{specie.commonLocations}}</h5></p>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

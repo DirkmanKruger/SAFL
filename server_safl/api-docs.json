@@ -1,0 +1,468 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "South African Fishing Log Application API",
+    "description": "REST API Documentation",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3443",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    },
+    {
+      "name": "Species",
+      "description": "API for fish species in the system"
+    },
+    {
+      "name": "Catches",
+      "description": "API for catches logged by users in the system"
+    },
+    {
+      "name": "Knots",
+      "description": "API for knots in the system"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/register": {
+      "parameters": [
+        {
+          "name": "user",
+          "in": "body",
+          "description": "User that we want to register",
+          "schema": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      ],
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Register a new user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to register",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is registered",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "parameters": [
+        {
+          "name": "user",
+          "in": "body",
+          "description": "User that we want to login",
+          "schema": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      ],
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "User Login",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Login",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User is logged in",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/catches": {
+      "post": {
+        "tags": [
+          "Catches"
+        ],
+        "description": "Create new catch in system",
+        "parameters": [
+          {
+            "name": "catch",
+            "in": "body",
+            "description": "Catch that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Catch"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New catch is created",
+            "schema": {
+              "$ref": "#/definitions/Catch"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Catches"
+        ],
+        "summary": "Get all catches in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Catches"
+            }
+          }
+        }
+      }
+    },
+    "/catches/{catchId}": {
+      "parameters": [
+        {
+          "name": "catchId",
+          "in": "path",
+          "required": true,
+          "description": "ID of catch that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Catches"
+        ],
+        "summary": "Get catch with given ID",
+        "responses": {
+          "200": {
+            "description": "Catch is found",
+            "schema": {
+              "$ref": "#/definitions/Catches"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete catch with given ID",
+        "tags": [
+          "Catches"
+        ],
+        "responses": {
+          "200": {
+            "description": "Catch is deleted",
+            "schema": {
+              "$ref": "#/definitions/Catches"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update catch with give ID",
+        "tags": [
+          "Catches"
+        ],
+        "parameters": [
+          {
+            "name": "catch",
+            "in": "body",
+            "description": "Catch with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/Catch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Catch is updated",
+            "schema": {
+              "$ref": "#/definitions/Catches"
+            }
+          }
+        }
+      }
+    },
+    "/knots": {
+      "get": {
+        "tags": [
+          "Knots"
+        ],
+        "summary": "Get all knots in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Knots"
+            }
+          }
+        }
+      }
+    },
+    "/knots/{knotId}": {
+      "parameters": [
+        {
+          "name": "knotId",
+          "in": "path",
+          "required": true,
+          "description": "ID of knot that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Knots"
+        ],
+        "summary": "Get knot with given ID",
+        "responses": {
+          "200": {
+            "description": "Knot is found",
+            "schema": {
+              "$ref": "#/definitions/Knot"
+            }
+          }
+        }
+      }
+    },
+    "/species": {
+      "get": {
+        "tags": [
+          "Species"
+        ],
+        "summary": "Get all species in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Specie"
+            }
+          }
+        }
+      }
+    },
+    "/species/{specieId}": {
+      "parameters": [
+        {
+          "name": "specieId",
+          "in": "path",
+          "required": true,
+          "description": "ID of Specie that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Species"
+        ],
+        "summary": "Get specie with given ID",
+        "responses": {
+          "200": {
+            "description": "Specie is found",
+            "schema": {
+              "$ref": "#/definitions/Species"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": [
+        "email","username","password","admin",
+        "_id"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "admin": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Catch": {
+      "required": [
+        "specie","lure","location","waterType","length", "weight", "released", "image", "_id"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "specie": {
+          "type": "string"
+        },
+        "lure": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "waterType": {
+          "type": "string"
+        },
+        "length": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "number"
+        },
+        "released": {
+          "type": "boolean"
+        },
+        "image": {
+          "type": "string"
+        }
+      }
+    },
+    "Knot": {
+      "required": [
+        "name","description","howtoUrl","_id"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "howtoUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "Specie": {
+      "required": [
+        "name","type","adultLength","averageWeight",
+        "commonLocations", "image", "_id"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "adultLength": {
+          "type": "number"
+        },
+        "averageWeight": {
+          "type": "number"
+        },
+        "commonLocations": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

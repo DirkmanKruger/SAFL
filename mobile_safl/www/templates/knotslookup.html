@@ -1,0 +1,20 @@
+<ion-view view-title="Knots Lookup">
+  <ion-content>
+    <h1>Knots Lookup</h1>
+    <div class="row">
+      <div class="col col-offset-10">
+        <ion-list>
+          <ion-item ng-repeat="knot in allKnots">
+            <div>
+              <a><img ng-src={{knot.howtoUrl}} alt="Image"></a>
+            </div>
+            <div>
+              <h3>{{knot.name}}</h3>
+              <p><h5>{{knot.description}}</h5></p>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

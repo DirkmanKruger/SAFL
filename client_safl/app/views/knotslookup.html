@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home </a></li>
+                <li class="active"> / Knots</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Knots Lookup</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-9">
+            <ul class="block">
+                <li ng-repeat="knot in allKnots">
+                    <div>
+                        <a>
+                            <img ng-src={{knot.howtoUrl}} alt="Image">
+                        </a>
+                    </div>
+                    <div>
+                        <h3>{{knot.name}}</h3>
+                        <p><h5>{{knot.description}}</h5></p>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>

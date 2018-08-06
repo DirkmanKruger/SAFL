@@ -1,0 +1,130 @@
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Upload your Catch</h3>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!--<form novalidate ng-submit="add(Form.$valid)" name="NewCatchForm">-->
+                <form ng-submit="submitNewCatch()" name="NewCatchForm">
+                    <!--<div class="btn-group" ng-model="newCatch.specie">-->
+                    <!--<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Specie</button>-->
+                    <!--<div class="dropdown-menu">-->
+                    <!--<li ng-repeat="color in colors">-->
+                    <!--<label ng-model="color.name"> {{color.name}}</label>-->
+                    <!--</li>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <label for="speciesSelect" class="col-sm-2 control-label">Species</label>
+                    <select id="speciesSelect" name="speciesSelect" class="form-control" ng-model="newCatch.specie"
+                            ng-options="specie.name for specie in species">
+                        <!--<option value="">Species</option>-->
+                    </select>
+                    <br>
+                    <label for="lureSelect" class="col-sm-2 control-label">Type of Lure</label>
+                    <select id="lureSelect" name="lureSelect" class="form-control" ng-model="newCatch.lure"
+                            ng-options="lure.value as lure.label for lure in lures">
+                        <!--<option value="">Type of Lure</option>-->
+                    </select>
+                    <br>
+                    <label for="waterTypeSelect" class="col-sm-2 control-label">Type of Water</label>
+                    <select id="waterTypeSelect" name="waterTypeSelect" class="form-control"
+                            ng-model="newCatch.waterType"
+                            ng-options="type.value as type.label for type in waterOptions">
+                        <!--<option value="">Type of Water</option>-->
+                    </select>
+                    <br>
+                    <label for="feedback" class="col-sm-2 control-label">Released</label>
+                    <select id="feedback" name="feedback" class="form-control" ng-model="newCatch.released"
+                            ng-options="released.value as released.label for released in releasedOptions">
+                        <!--<option value="">Released</option>-->
+                    </select>
+                    <br>
+                    <!--<div class="form-group" ng-model="newCatch.lure">-->
+                    <!--<label for="lureOptionArtificial">-->
+                    <!--<b>Lure</b>-->
+                    <!--</label>-->
+                    <!--<div class="form-check">-->
+                    <!--<input class="form-check-input" type="radio" name="exampleRadios" id="lureOptionArtificial" value="optionArtificial" checked="">-->
+                    <!--<label class="form-check-label" for="lureOptionArtificial">Artificial Lure</label>-->
+                    <!--</div>-->
+                    <!--<div class="form-check">-->
+                    <!--<input class="form-check-input" type="radio" name="exampleRadios" id="lureOptionBait" value="optionBait" checked="">-->
+                    <!--<label class="form-check-label" for="lureOptionBait">Bait</label>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="form-group">
+                        <label for="locationInput" class="col-sm-2 control-label">Location</label>
+                        <input id="locationInput" name="locationInput" ng-model="newCatch.location" type="text"
+                               class="form-control form-control-sm" placeholder="Where did you make this catch"
+                               required="required">
+                    </div>
+                    <!--<div class="form-group">-->
+                    <!--<label for="waterOptionSalt">-->
+                    <!--<b>Type of Water</b>-->
+                    <!--</label>-->
+                    <!--<div class="form-check">-->
+                    <!--<input class="form-check-input" type="radio" name="exampleRadios" id="waterOptionSalt" value="optionSalt" checked="">-->
+                    <!--<label class="form-check-label" for="waterOptionSalt">Salt</label>-->
+                    <!--</div>-->
+                    <!--<div class="form-check">-->
+                    <!--<input class="form-check-input" type="radio" name="exampleRadios" id="waterOptionFresh" value="optionFresh" checked="">-->
+                    <!--<label class="form-check-label" for="waterOptionFresh">Fresh</label>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="form-group">
+                        <label for="lengthInput" class="col-sm-2 control-label">Length (cm)</label>
+                        <input id="lengthInput" name="lengthInput" ng-model="newCatch.length" type="number"
+                               class="form-control form-control-sm" placeholder="length" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="weightInput" class="col-sm-2 control-label">Weight (kg)</label>
+                        <input id="weightInput" name="weightInput" ng-model="newCatch.weight" type="number"
+                               class="form-control form-control-sm" placeholder="weight" required="required">
+                    </div>
+                    <!--<div class="form-group">-->
+                    <!--<label for="releasedOptionYes">-->
+                    <!--<b>Released</b>-->
+                    <!--</label>-->
+                    <!--<div class="form-check">-->
+                    <!--<input class="form-check-input" type="radio" name="exampleRadios" id="releasedOptionYes" value="optionYes" checked="">-->
+                    <!--<label class="form-check-label" for="releasedOptionYes">Yes</label>-->
+                    <!--</div>-->
+                    <!--<div class="form-check">-->
+                    <!--<input class="form-check-input" type="radio" name="exampleRadios" id="releasedOptionNo" value="optionNo" checked="">-->
+                    <!--<label class="form-check-label" for="releasedOptionNo">No</label>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                    <!--<label></label>-->
+                    <!--</div>-->
+                    <br>
+                    <div ng-controller="UploadController">
+                        <!--<button type="submit" class="btn btn-primary">-->
+                        <!--<b>Upload Image</b>-->
+                        <!--<input type="file" class="btn btn-primary" ng-file-select="onFileSelect($files)" >-->
+                        <!--</button>-->
+                        <input type="file" class="btn btn-primary" ng-file-select="onFileSelect($files)">
+                        <!--  <input type="file" ng-file-select="onFileSelect($files)" multiple> -->
+                        <br>
+                        <i ng-hide="imageSrc">No image chosen</i>
+                        <img ng-src="{{imageSrc}}" ng-model="newCatch.image">
+                        <br>
+                        <!--<b>Progress:</b>
+                                  <progress value="{{progress}}"></progress>-->
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit Catch</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
